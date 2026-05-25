@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# ANTLR generated artifacts (Java output, interp/token files)
+.antlr/
+*.interp
+*.tokens
+
+# Logs
+*.log
+
+# Node (if any tooling is added)
+node_modules/
+
+# Environment / secrets
+.env
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+Debug/
+Release/
+*.exe
+*.dll
+*.class
+*.jar.bak
+
+# Angular (not used here but kept in case)
+.angular/

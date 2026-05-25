@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Verify ⋅ MiniLang{% endblock %}
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+
+  <!-- 25 % – input panel -->
+  <div class="col-md-4 col-lg-3">
+    <h2 class="h5 fw-bold mb-3">Verify</h2>
+
+    <textarea id="codeArea" class="form-control mb-2" rows="10"
+              placeholder="Type MiniLang program here…"></textarea>
+
+    <div class="d-flex gap-2">
+      <input id="unrollN" type="number" value="1" min="1"
+             class="form-control w-50">
+      <button id="runVerify" class="btn btn-success flex-grow-1">
+        Run
+      </button>
+    </div>
+  </div>
+
+  <!-- 75 % – result card -->
+  <div class="col-md-8 col-lg-9">
+    <div class="card h-100">
+      <div class="card-body">
+
+        <!-- nav-pills -->
+        <ul id="verifyTabs" class="nav nav-pills flex-wrap mb-3" role="tablist"></ul>
+
+        <!-- panes -->
+        <div id="verifyPanes" class="tab-content border rounded p-3 bg-dark"></div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

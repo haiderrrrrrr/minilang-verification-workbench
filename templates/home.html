@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}MiniLang Workbench{% endblock %}
+
+{% block content %}
+<section class="hero mb-5 shadow-sm">
+  <div class="container-lg py-5">
+    <div class="row align-items-center">
+
+      <!-- Text -->
+      <div class="col-md-7">
+        <h1 class="display-4 fw-bold mb-3 text-white">MiniLang&nbsp;Workbench</h1>
+        <p class="lead text-white-50 mb-4">
+          Parse, optimise &amp; verify tiny programs in your browser.
+        </p>
+        <a href="/verify" class="btn btn-light btn-lg me-2">Go&nbsp;to&nbsp;Verify</a>
+        <a href="/equiv"  class="btn btn-outline-light btn-lg">Go&nbsp;to&nbsp;Equivalence</a>
+      </div>
+
+      <!-- Logo illustration -->
+      <div class="col-md-5 d-none d-md-flex justify-content-center">
+        <svg width="220" height="220" viewBox="0 0 24 24" fill="none"
+             stroke="white" stroke-width="1.6" stroke-linecap="round"
+             stroke-linejoin="round" style="opacity:.85">
+          <polyline points="16 3 21 8 16 13"></polyline>
+          <polyline points="8 13 3 8 8 3"></polyline>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
