@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}MiniLang Workbench{% endblock %}
+
+{% block content %}
+<div class="flex-1 flex flex-col items-center justify-center p-gutter">
+  <div class="max-w-2xl w-full text-center space-y-8">
+
+    <!-- Icon -->
+    <div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto border border-primary/20">
+      <span class="material-symbols-outlined text-primary text-[48px]"
+            style="font-variation-settings:'FILL' 1">terminal</span>
+    </div>
+
+    <!-- Headline -->
+    <div class="space-y-3">
+      <h1 class="font-headline-lg text-headline-lg text-on-surface">MiniLang Workbench</h1>
+      <p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg mx-auto">
+        Parse, verify, and compare MiniLang programs using
+        <span class="text-primary font-bold">ANTLR4</span> grammar,
+        <span class="text-primary font-bold">SSA</span> transformation,
+        and <span class="text-primary font-bold">Z3</span> formal verification.
+      </p>
+    </div>
+
+    <!-- Feature cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+      <a href="/verify"
+         class="bg-surface-container rounded-xl p-6 border border-outline-variant/30 hover:border-primary/40 transition-all group hover:shadow-[0_0_24px_-8px_rgba(87,241,219,0.25)]">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary"
+                style="font-variation-settings:'FILL' 1">verified_user</span>
+          <h2 class="font-label-caps text-label-caps text-on-surface group-hover:text-primary transition-colors">
+            Verifier
+          </h2>
+        </div>
+        <p class="text-on-surface-variant text-[13px] leading-relaxed">
+          Enter a MiniLang program, set a loop-unroll bound, and check
+          <code class="text-primary/80 font-code-md">assert(…)</code>
+          statements with Z3. See counter-examples or witnesses.
+        </p>
+      </a>
+
+      <a href="/equiv"
+         class="bg-surface-container rounded-xl p-6 border border-outline-variant/30 hover:border-primary/40 transition-all group hover:shadow-[0_0_24px_-8px_rgba(87,241,219,0.25)]">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="material-symbols-outlined text-primary">compare_arrows</span>
+          <h2 class="font-label-caps text-label-caps text-on-surface group-hover:text-primary transition-colors">
+            Equivalence
+          </h2>
+        </div>
+        <p class="text-on-surface-variant text-[13px] leading-relaxed">
+          Paste two programs side-by-side and determine whether they produce
+          identical final states for a bounded number of loop iterations.
+        </p>
+      </a>
+    </div>
+
+    <!-- Pipeline badge strip -->
+    <div class="hidden sm:flex items-center justify-center gap-2 flex-wrap">
+      {% for stage in ['ANTLR4 Parse', 'Loop Unroll', 'SSA Transform', 'Const Prop', 'CSE', 'Dead Code', 'SMT-LIB', 'Z3 Verify'] %}
+      <span class="px-3 py-1 bg-surface-container border border-outline-variant/30 rounded-full font-label-caps text-label-caps text-on-surface-variant text-[10px]">
+        {{ stage }}
+      </span>
+      {% if not loop.last %}
+      <span class="material-symbols-outlined text-outline-variant text-[14px]">arrow_forward</span>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}
